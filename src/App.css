@@ -1,0 +1,65 @@
+:root {
+    --primary-100: #f3dada;
+    --primary-200: #e7b5b5;
+    --primary-300: #dc9090;
+    --primary-400: #d06b6b;
+    --primary-500: #c44646;
+    --primary-600: #9d3838;
+    --primary-700: #762a2a;
+    --primary-800: #4e1c1c;
+    --primary-900: #270e0e;
+
+    --grey-50: #f9fafb;
+    --grey-100: #f3f4f6;
+    --grey-200: #e5e7eb;
+    --grey-300: #d1d5db;
+    --grey-400: #9ca3af;
+    --grey-500: #6b7280;
+    --grey-600: #4b5563;
+    --grey-700: #374151;
+    --grey-800: #1f2937;
+    --grey-900: #111827;
+    --grey-950: #030712;
+
+    --black: #222;
+    --white: #fff;
+
+    --backgroundColor: var(--grey-50);
+    --textColor: var(--grey-900);
+    --radius: 0.5rem;
+    --spacing: 1px;
+    --transition: all 0.3s linear;
+    --max-width: 1400px;
+    --fixed-width: 600px;
+    --padding: 0.375rem 0.75rem;
+    --bodyFont: 'Poppins', serif;
+
+    --shadow-1: 0 1px 3px 0 rgb(0 0 0 / 0.1),
+        0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-2: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+        0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-3: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+        0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-4: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+        0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--bodyFont);
+    background: var(--backgroundColor);
+    color: var(--grey-950);
+    line-height: 1.5;
+    font-size: 0.875rem;
+}
+
+a {
+    text-decoration: none;
+}
