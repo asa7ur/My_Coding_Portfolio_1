@@ -2,6 +2,11 @@ import frontEndImg from '../assets/frontEnd.svg'
 import backEndImg from '../assets/backEnd.svg'
 import uiUxImg from '../assets/uiux.svg'
 
+import project1 from '../assets/project-1.jpg'
+import project2 from '../assets/project-2.jpg'
+import project3 from '../assets/project-3.jpg'
+import project4 from '../assets/project-4.jpg'
+
 export const links = [
   {
     id: 1,
@@ -56,5 +61,32 @@ export const services = [
     image: uiUxImg,
     title: 'UI/UX Designer',
     description: `As a UI/UX Designer, I'm dedicated to crafting seamless digital experiences. Through a mix of creativity and user-centric design principles, I create interfaces that are intuitive, accessible, and visually engaging using Figma.`,
+  },
+]
+
+export const projects = [
+  {
+    image: project1,
+    title: 'Admin Dashboard',
+    github: 'https://github.com/asa7ur/Admin_Dashboard_1',
+    web: 'https://admin-dashboard-1-asa7ur.netlify.app/',
+  },
+  {
+    image: project2,
+    title: 'Music Player App',
+    github: 'https://github.com/asa7ur/Music_Website_1',
+    web: 'https://music-website-1-asa7ur.netlify.app/',
+  },
+  {
+    image: project3,
+    title: 'Weather App',
+    github: 'https://github.com/asa7ur/Weather_App_1',
+    web: 'https://weather-app-1-asa7ur.netlify.app/',
+  },
+  {
+    image: project4,
+    title: 'Calculator App',
+    github: 'https://github.com/asa7ur/Calculator_App_1',
+    web: 'https://calculator-app-1-asa7ur.netlify.app/',
   },
 ]
