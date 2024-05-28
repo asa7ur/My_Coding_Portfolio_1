@@ -29,7 +29,7 @@ const Wrapper = styled.header`
   height: calc(100vh - 3rem);
 
   .section {
-    max-width: 1100px;
+    max-width: 80vw;
     margin: auto;
     display: flex;
     flex-direction: row;
@@ -56,28 +56,31 @@ const Wrapper = styled.header`
   }
 
   .title span {
-    background: linear-gradient(to right, #de4848, #ffcece);
+    background: var(--gradient);
     background-clip: text;
     color: transparent;
   }
 
   button {
-    padding: 1rem 1.5rem;
+    padding: var(--padding);
     margin-top: 2rem;
     background-color: var(--grey-900);
-    color: var(--grey-100);
-    border-radius: 20px;
-    font-size: 1.2rem;
+    color: var(--textColor);
+    border: var(--border);
+    border-radius: var(--radius);
+    font-size: 1rem;
     text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s linear;
   }
 
   button:hover {
-    border-color: var(--border-color-hover);
+    color: var(--primary-500);
+    background: var(--grey-200);
   }
 
   .image img {
+    max-height: 70vh;
     max-width: 400px;
   }
 
@@ -94,14 +97,19 @@ const Wrapper = styled.header`
       font-size: 1.5rem;
     }
 
+    button {
+      font-size: 1.2rem;
+    }
+
     .image img {
-      max-width: 480px;
+      max-height: 90vh;
+      max-width: var(--fixed-width);
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     .content {
-      margin: 7rem auto;
+      margin: 20vh auto;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -131,11 +139,11 @@ const Wrapper = styled.header`
     }
 
     .title h4 {
-      font-size: 1rem;
+      font-size: 0.875rem;
     }
 
-    .image img {
-      max-width: 480px;
+    button {
+      font-size: 0.875rem;
     }
   }
 `

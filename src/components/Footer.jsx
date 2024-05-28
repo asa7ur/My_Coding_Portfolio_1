@@ -27,7 +27,8 @@ const Footer = () => {
 export default Footer
 
 const Wrapper = styled.footer`
-  background-color: var(--grey-950);
+  background-color: var(--backgroundColor);
+  border-top: var(--border);
 
   .content {
     display: flex;
@@ -46,8 +47,8 @@ const Wrapper = styled.footer`
   }
 
   .content .socials .logo {
-    color: var(--grey-100);
-    transition: all 0.3s ease;
+    color: var(--textColor);
+    transition: var(--transition);
   }
 
   .content .socials .logo:hover {

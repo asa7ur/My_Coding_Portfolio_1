@@ -38,12 +38,12 @@ const NavBar = () => {
 export default NavBar
 
 const Wrapper = styled.nav`
-  background-color: var(--grey-950);
+  background-color: var(--backgroundColor);
   overflow: hidden;
   position: sticky;
   z-index: 999;
   top: 0;
-  border-bottom: 1px solid var(--grey-600);
+  border-bottom: var(--border);
 
   .nav {
     max-width: var(--max-width);
@@ -66,9 +66,9 @@ const Wrapper = styled.nav`
   }
 
   .nav-logo span {
-    color: var(--grey-100);
+    color: var(--textColor);
     font-size: 1rem;
-    transition: all 0.3s ease;
+    transition: var(--transition);
   }
 
   .nav-logo span:hover {
@@ -78,9 +78,9 @@ const Wrapper = styled.nav`
   .nav-toggle {
     background: transparent;
     border: transparent;
-    color: var(--grey-100);
+    color: var(--textColor);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: var(--transition);
     svg {
       font-size: 1.5rem;
     }
@@ -95,13 +95,13 @@ const Wrapper = styled.nav`
   }
 
   .link a {
-    color: var(--grey-100);
+    color: var(--textColor);
     position: relative;
     transition: all 0.3s ease;
     padding-bottom: 0.5rem;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 800px) {
     .nav {
       padding: 1rem 2rem;
     }
