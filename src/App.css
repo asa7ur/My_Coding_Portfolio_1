@@ -62,12 +62,28 @@ body {
     font-size: 0.875rem;
 }
 
+h1,
+h2,
+h3,
+h4{
+    text-transform: capitalize;
+}
+
 a {
     text-decoration: none;
 }
 
 .section-center {
-    width: 90vw;
+    max-width: 90vw;
     margin: 0 auto;
     max-width: var(--max-width);
+}
+
+.section {
+    max-width: 80vw;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }

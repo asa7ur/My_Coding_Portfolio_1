@@ -28,15 +28,6 @@ const Wrapper = styled.header`
   background-color: var(--grey-950);
   height: calc(100vh - 3rem);
 
-  .section {
-    max-width: 80vw;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-
   .title h1 {
     font-size: 3rem;
     text-transform: uppercase;
@@ -45,8 +36,8 @@ const Wrapper = styled.header`
 
   .title h3 {
     font-size: 1.5rem;
-    color: var(--grey-100);
     text-transform: uppercase;
+    color: var(--grey-100);
   }
 
   .title h4 {
@@ -56,6 +47,7 @@ const Wrapper = styled.header`
   }
 
   .title span {
+    text-transform: uppercase;
     background: var(--gradient);
     background-clip: text;
     color: transparent;

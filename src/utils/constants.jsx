@@ -16,3 +16,23 @@ export const links = [
     text: 'contact me',
   },
 ]
+
+export const personal_info = [
+  { label: 'Name:', value: 'Garik Asatryan' },
+  { label: 'Age:', value: '27' },
+  { label: 'Address:', value: 'Sevilla, Spain' },
+  { label: 'Email:', value: 'asa7ur@proton.me' },
+  { label: 'Phone:', value: '+34611450988' },
+]
+
+export const skills = [
+  'HTML',
+  'CSS',
+  'javascript',
+  'react',
+  'python',
+  'nodeJS',
+  'mongoDB',
+  'git',
+  'figma',
+]
