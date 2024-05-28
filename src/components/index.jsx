@@ -4,6 +4,7 @@ import Hero from "./Hero";
 import AboutMe from "./AboutMe";
 import Services from "./Services";
 import Portfolio from "./Portfolio";
+import ContactMe from "./ContactMe";
 
 export{
     NavBar,
@@ -11,5 +12,6 @@ export{
     Hero,
     AboutMe,
     Services,
-    Portfolio
+    Portfolio,
+    ContactMe
 }
