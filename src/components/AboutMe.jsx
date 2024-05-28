@@ -5,33 +5,31 @@ import { skills, personal_info } from '../utils/constants'
 const AboutMe = () => {
   return (
     <Wrapper>
-      <div className='section-center'>
-        <h1>About Me</h1>
-        <div className='section'>
-          <img src={image} />
-          <div className='container'>
-            <h2>Personal Info</h2>
-            <div className='info'>
-              {personal_info.map((info) => {
-                const { label, value } = info
-                return (
-                  <div className='info-item'>
-                    <h4 className='info-label'>{label}</h4>
-                    <span>{value}</span>
-                  </div>
-                )
-              })}
-            </div>
-            <h2>Skills</h2>
-            <div className='skills'>
-              {skills.map((skill) => {
-                return (
-                  <div className='skill'>
-                    <h4>{skill}</h4>
-                  </div>
-                )
-              })}
-            </div>
+      <h1>About Me</h1>
+      <div className='section'>
+        <img src={image} />
+        <div className='container'>
+          <h2>Personal Info</h2>
+          <div className='info'>
+            {personal_info.map((info) => {
+              const { label, value } = info
+              return (
+                <div className='info-item'>
+                  <h4 className='info-label'>{label}</h4>
+                  <span>{value}</span>
+                </div>
+              )
+            })}
+          </div>
+          <h2>Skills</h2>
+          <div className='skills'>
+            {skills.map((skill) => {
+              return (
+                <div className='skill'>
+                  <h4>{skill}</h4>
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>
@@ -44,8 +42,6 @@ const Wrapper = styled.section`
   background-color: var(--grey-800);
   border-top: var(--border);
   border-bottom: var(--border);
-  padding-top: 3rem;
-  padding-bottom: 10rem;
 
   h1 {
     font-size: 3rem;
