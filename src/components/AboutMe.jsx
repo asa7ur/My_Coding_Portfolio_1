@@ -102,4 +102,20 @@ const Wrapper = styled.section`
     font-weight: bold;
     user-select: none;
   }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+      padding-bottom: 1rem;
+    }
+
+    .section {
+      display: flex;
+      flex-direction: column;
+    }
+
+    img {
+      max-width: 200px;
+    }
+  }
 `
