@@ -1,55 +1,103 @@
 import styled from 'styled-components'
+import { useState } from 'react'
+import axios from 'axios'
 
 const ContactMe = () => {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [subject, setSubject] = useState('')
+  const [message, setMessage] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+  const [result, setResult] = useState('')
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setIsLoading(true)
+
+    try {
+      await axios.post('/api/email', {
+        name,
+        email,
+        subject,
+        message,
+      })
+
+      setName('')
+      setEmail('')
+      setSubject('')
+      setMessage('')
+      setResult('Message sent successfully!')
+    } catch (error) {
+      setResult(error.response.data)
+    } finally {
+      setIsLoading(false)
+      setTimeout(() => {
+        setResult('')
+      }, 3000)
+    }
+  }
+
   return (
     <Wrapper>
       <h1>Contact Me</h1>
-        <form className='form'>
-          <div className='form-section'>
-            <div className='form-group'>
-              <input
-                type='text'
-                className='user_name'
-                id='name'
-                placeholder='Name'
-              />
-            </div>
-
-            <div className='form-group'>
-              <input
-                type='email'
-                className='user_email'
-                id='email'
-                placeholder='Email'
-              />
-            </div>
-          </div>
-
+      <form className='form' onSubmit={handleSubmit}>
+        <div className='form-section'>
           <div className='form-group'>
             <input
               type='text'
-              className='subject'
-              id='subject'
-              placeholder='Subject'
+              className='user_name'
+              id='name'
+              placeholder='Name'
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
 
           <div className='form-group'>
-            <textarea
-              id='message'
-              className='message'
-              spellCheck='false'
-              placeholder='Message'
-            ></textarea>
+            <input
+              type='email'
+              className='user_email'
+              id='email'
+              placeholder='Email'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
+        </div>
 
-          <div className='form-group result-container'>
-            <button type='submit' className='submit-btn'>
-              Send
-            </button>
-            <p className='result'>Email sent successfully!</p>
-          </div>
-        </form>
+        <div className='form-group'>
+          <input
+            type='text'
+            className='subject'
+            id='subject'
+            placeholder='Subject'
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
+          />
+        </div>
+
+        <div className='form-group'>
+          <textarea
+            id='message'
+            className='message'
+            spellCheck='false'
+            placeholder='Message'
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          ></textarea>
+        </div>
+
+        <div className='form-group result-container'>
+          <button type='submit' className='submit-btn'>
+            {isLoading ? <span className='sending'></span> : 'Send Message'}
+          </button>
+          {result && (
+            <div className='result' style={{ opacity: 1 }}>
+              {result}
+            </div>
+          )}
+        </div>
+      </form>
     </Wrapper>
   )
 }
@@ -67,7 +115,7 @@ const Wrapper = styled.section`
     color: transparent;
   }
 
-  .form{
+  .form {
     margin: 0 auto;
     width: 600px;
     max-width: 80vw;
@@ -126,7 +174,7 @@ const Wrapper = styled.section`
     gap: 3rem;
   }
 
-  .result-container p {
+  .result-container .result {
     opacity: 0;
     transition: all 0.3s ease;
     color: var(--textColor);
