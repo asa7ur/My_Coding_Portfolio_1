@@ -64,43 +64,43 @@ const Wrapper = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    h2 {
+      text-align: center;
+      padding: 1rem;
+      text-transform: uppercase;
+    }
+
+    .info {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .info-item,
+    .skills .skill {
+      padding: var(--padding);
+      margin: 0.75rem;
+      border: var(--border);
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .skills .skill h4,
+    .info-label {
+      color: var(--primary-500);
+      font-weight: bold;
+      user-select: none;
+    }
   }
 
-  .container h2 {
-    text-align: center;
-    padding: 1rem;
-    text-transform: uppercase;
-  }
-
-  .container .info {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .container .info-item,
-  .container .skills .skill {
-    padding: var(--padding);
-    margin: 0.75rem;
-    border: var(--border);
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-
-  .container .skills {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .container .skills .skill h4,
-  .container .info-label {
-    color: var(--primary-500);
-    font-weight: bold;
-    user-select: none;
-  }
-
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
     h1 {
       font-size: 2.5rem;
       padding-bottom: 1rem;

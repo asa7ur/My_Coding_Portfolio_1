@@ -62,26 +62,28 @@ const Wrapper = styled.nav`
     justify-content: space-between;
   }
 
-  .nav-logo a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 5px;
-    cursor: pointer;
-  }
+  .nav-logo {
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 5px;
+      cursor: pointer;
+    }
 
-  .nav-logo img {
-    max-height: 25px;
-  }
+    img {
+      max-height: 25px;
+    }
 
-  .nav-logo span {
-    color: var(--textColor);
-    font-size: 1rem;
-    transition: var(--transition);
-  }
+    span {
+      color: var(--textColor);
+      font-size: 1rem;
+      transition: var(--transition);
+    }
 
-  .nav-logo span:hover {
-    color: var(--primary-500);
+    span:hover {
+      color: var(--primary-500);
+    }
   }
 
   .nav-toggle {
@@ -93,10 +95,10 @@ const Wrapper = styled.nav`
     svg {
       font-size: 1.5rem;
     }
-  }
-
-  .nav-toggle:hover {
-    color: var(--primary-500);
+    
+    :hover {
+      color: var(--primary-500);
+    }
   }
 
   .nav-links {
@@ -115,12 +117,14 @@ const Wrapper = styled.nav`
     .nav {
       padding: 1rem 2rem;
     }
-    .nav-logo img {
-      max-height: 30px;
-    }
+    .nav-logo {
+      img {
+        max-height: 30px;
+      }
 
-    .nav-logo span {
-      font-size: 1.3rem;
+      span {
+        font-size: 1.3rem;
+      }
     }
 
     .nav-toggle {
@@ -160,12 +164,14 @@ const Wrapper = styled.nav`
       padding: 1rem 1.5rem;
     }
 
-    .nav-logo img {
-      max-height: 20px;
-    }
+    .nav-logo {
+      img {
+        max-height: 20px;
+      }
 
-    .nav-logo span {
-      font-size: 1rem;
+      span {
+        font-size: 1rem;
+      }
     }
   }
 `

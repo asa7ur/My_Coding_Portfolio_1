@@ -27,30 +27,28 @@ export default Hero
 const Wrapper = styled.header`
   background-color: var(--grey-950);
   height: calc(100vh - 3rem);
-
-  .title h1 {
-    font-size: 3rem;
-    text-transform: uppercase;
-    color: var(--grey-100);
-  }
-
-  .title h3 {
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    color: var(--grey-100);
-  }
-
-  .title h4 {
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    color: var(--grey-100);
-  }
-
-  .title span {
-    text-transform: uppercase;
-    background: var(--gradient);
-    background-clip: text;
-    color: transparent;
+  .title {
+    h1 {
+      font-size: 3rem;
+      text-transform: uppercase;
+      color: var(--grey-100);
+    }
+    h3 {
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      color: var(--grey-100);
+    }
+    h4 {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      color: var(--grey-100);
+    }
+    span {
+      text-transform: uppercase;
+      background: var(--gradient);
+      background-clip: text;
+      color: transparent;
+    }
   }
 
   button {
@@ -64,11 +62,10 @@ const Wrapper = styled.header`
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.4s linear;
-  }
-
-  button:hover {
-    color: var(--primary-500);
-    background: var(--grey-200);
+    &:hover {
+      color: var(--primary-500);
+      background: var(--grey-200);
+    }
   }
 
   .image img {
@@ -77,16 +74,18 @@ const Wrapper = styled.header`
   }
 
   @media (min-width: 1024px) {
-    .title h1 {
-      font-size: 4rem;
-    }
+    .title {
+      h1 {
+        font-size: 4rem;
+      }
 
-    .title h3 {
-      font-size: 2rem;
-    }
+      h3 {
+        font-size: 2rem;
+      }
 
-    .title h4 {
-      font-size: 1.5rem;
+      h4 {
+        font-size: 1.5rem;
+      }
     }
 
     button {
@@ -122,16 +121,18 @@ const Wrapper = styled.header`
   }
 
   @media (max-width: 460px) {
-    .title h1 {
-      font-size: 2.5rem;
-    }
+    .title {
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      h3 {
+        font-size: 1.5rem;
+      }
 
-    .title h3 {
-      font-size: 1.5rem;
-    }
-
-    .title h4 {
-      font-size: 0.875rem;
+      h4 {
+        font-size: 0.875rem;
+      }
     }
 
     button {

@@ -129,42 +129,44 @@ const Wrapper = styled.section`
     gap: 10vw;
   }
 
-  .form-group input,
-  .form-group textarea {
-    font-size: 1rem;
-    width: 100%;
-    padding: 0.7rem 1rem;
-    margin-bottom: 1rem;
-    background-color: var(--grey-900);
-    color: var(--textColor);
-    border: var(--border);
-    border-radius: 10px;
-  }
+  .form-group {
+    input,
+    textarea {
+      font-size: 1rem;
+      width: 100%;
+      padding: 0.7rem 1rem;
+      margin-bottom: 1rem;
+      background-color: var(--grey-900);
+      color: var(--textColor);
+      border: var(--border);
+      border-radius: 10px;
+    }
 
-  .form-group textarea {
-    font-family: var(--bodyFont);
-    height: 150px;
-    resize: none;
-  }
+    textarea {
+      font-family: var(--bodyFont);
+      height: 150px;
+      resize: none;
+    }
 
-  .form-group textarea::placeholder {
-    font-family: var(--bodyFont);
-  }
+    textarea::placeholder {
+      font-family: var(--bodyFont);
+    }
 
-  .form-group button {
-    padding: var(--padding);
-    background-color: var(--grey-900);
-    color: var(--textColor);
-    border: var(--border);
-    border-radius: 10px;
-    font-size: 1rem;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.4s linear;
-  }
-
-  .form-group button:hover {
-    box-shadow: none;
+    button {
+      padding: var(--padding);
+      background-color: var(--grey-900);
+      color: var(--textColor);
+      border: var(--border);
+      border-radius: 10px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.4s linear;
+      &:hover {
+        color: var(--primary-500);
+        background: var(--grey-200);
+      }
+    }
   }
 
   .result-container {
@@ -172,12 +174,11 @@ const Wrapper = styled.section`
     flex-direction: row;
     align-items: center;
     gap: 3rem;
-  }
-
-  .result-container .result {
-    opacity: 0;
-    transition: all 0.3s ease;
-    color: var(--textColor);
+    .result {
+      opacity: 0;
+      transition: all 0.3s ease;
+      color: var(--textColor);
+    }
   }
 
   @keyframes spinner {

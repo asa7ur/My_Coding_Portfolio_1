@@ -62,26 +62,25 @@ const Wrapper = styled.section`
     height: auto;
     box-shadow: var(--shadow-4);
     transition: var(--transition);
-  }
+    &:hover {
+      box-shadow: none;
+    }
 
-  .project:hover {
-    box-shadow: none;
-  }
+    img {
+      max-width: 100%;
+    }
 
-  .project img {
-    max-width: 100%;
-  }
+    h2 {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+    }
 
-  .project h2 {
-    font-size: 1.2rem;
-    text-transform: uppercase;
-  }
-
-  .project .info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 0.5rem;
+    .info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0.5rem;
+    }
   }
 
   .links {
@@ -104,11 +103,12 @@ const Wrapper = styled.section`
 
     .project {
       padding: 1rem;
-    }
-
-    .project .info h2,
-    .project .info a {
-      font-size: 1.2rem;
+      .info {
+        h2,
+        a {
+          font-size: 1.2rem;
+        }
+      }
     }
   }
 

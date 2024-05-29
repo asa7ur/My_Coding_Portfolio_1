@@ -56,14 +56,12 @@ const Wrapper = styled.section`
     flex-direction: column;
     align-items: center;
     gap: 10px;
-  }
-
-  .service:hover {
-    box-shadow: none;
-  }
-
-  .service img {
-    height: 75px;
+    &:hover {
+      box-shadow: none;
+    }
+    img {
+      height: 75px;
+    }
   }
 
   @media (max-width: 768px) {

@@ -36,37 +36,32 @@ const Wrapper = styled.footer`
     align-items: center;
     padding-top: 2rem;
     padding-bottom: 1rem;
-  }
-
-  .content .socials {
-    font-size: 2.5rem;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    padding-bottom: 1rem;
-  }
-
-  .content .socials .logo {
-    color: var(--textColor);
-    transition: var(--transition);
-  }
-
-  .content .socials .logo:hover {
-    color: var(--primary-500);
-  }
-
-  .content p {
-    color: var(--primary-500);
+    .socials {
+      font-size: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      padding-bottom: 1rem;
+      .logo {
+        color: var(--textColor);
+        transition: var(--transition);
+        &:hover {
+          color: var(--primary-500);
+        }
+      }
+    }
+    p {
+      color: var(--primary-500);
+    }
   }
 
   @media (max-width: 768px) {
     .content {
       padding: 1rem;
-    }
-
-    .content .socials {
-      padding: 0;
-      font-size: 2rem;
+      .socials {
+        padding: 0;
+        font-size: 2rem;
+      }
     }
   }
 `
