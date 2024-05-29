@@ -12,9 +12,9 @@ const AboutMe = () => {
           <h2>Personal Info</h2>
           <div className='info'>
             {personal_info.map((info) => {
-              const { label, value } = info
+              const { id, label, value } = info
               return (
-                <div className='info-item'>
+                <div className='info-item' key={id}>
                   <h4 className='info-label'>{label}</h4>
                   <span>{value}</span>
                 </div>
@@ -24,9 +24,10 @@ const AboutMe = () => {
           <h2>Skills</h2>
           <div className='skills'>
             {skills.map((skill) => {
+              const {id, value} = skill
               return (
-                <div className='skill'>
-                  <h4>{skill}</h4>
+                <div className='skill' key={id}>
+                  <h4>{value}</h4>
                 </div>
               )
             })}

@@ -6,16 +6,16 @@ const Portfolio = () => {
   return (
     <Wrapper>
       <h1>Portfolio</h1>
-      <div class='section'>
-        <div class='projects'>
+      <div className='section'>
+        <div className='projects'>
           {projects.map((project) => {
-            const { image, title, github, web } = project
+            const { id, image, title, github, web } = project
             return (
-              <div class='project'>
+              <div className='project' key={id}>
                 <img src={image} alt={title} />
-                <div class='info'>
+                <div className='info'>
                   <h2>{title}</h2>
-                  <div class='links'>
+                  <div className='links'>
                     <a href={github} target='_blank'>
                       <FaGithub />
                     </a>

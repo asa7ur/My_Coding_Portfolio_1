@@ -38,7 +38,7 @@ const ContactMe = () => {
             <textarea
               id='message'
               className='message'
-              spellcheck='false'
+              spellCheck='false'
               placeholder='Message'
             ></textarea>
           </div>

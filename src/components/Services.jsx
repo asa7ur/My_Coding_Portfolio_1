@@ -8,9 +8,9 @@ const Services = () => {
         <div className='section'>
           <div className='services'>
             {services.map((service) => {
-              const { image, title, description } = service
+              const { id, image, title, description } = service
               return (
-                <div className='service'>
+                <div className='service' key={id}>
                   <img src={image} />
                   <h2>{title}</h2>
                   <p>{description}</p>
