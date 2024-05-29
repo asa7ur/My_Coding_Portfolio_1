@@ -1,34 +1,42 @@
 import styled from 'styled-components'
 import logo from '../assets/logo.png'
 import { FaBars } from 'react-icons/fa'
+import { Link, Element, animateScroll as scroll } from 'react-scroll'
 
 const NavBar = () => {
   return (
     <Wrapper>
       <div className='nav'>
         <div className='nav-logo'>
-          <a id='hero' href='#'>
+          <Link to='hero' smooth={true} offset={-63.2} duration={500}>
             <img src={logo} alt='logo' />
             <span>ASA7UR</span>
-          </a>
+          </Link>
         </div>
         <button type='button' className='nav-toggle'>
           <FaBars />
         </button>
         <ul className='nav-links'>
-          <li id='about-me' className='link'>
-            <a href='#'>About Me</a>
+          <li className='link'>
+            <Link to='about-me' smooth={true} offset={-63.2} duration={500}>
+              About me
+            </Link>
           </li>
-          <li id='services' className='link'>
-            <a href='#'>Services</a>
+          <li className='link'>
+            <Link to='services' smooth={true} offset={-63.2} duration={500}>
+              Services
+            </Link>
           </li>
-          <li id='portfolio' className='link'>
-            <a href='#'>Portfolio</a>
+          <li className='link'>
+            <Link to='portfolio' smooth={true} offset={-63.2} duration={500}>
+              Portfolio
+            </Link>
           </li>
-          <li id='contact-me' className='link'>
-            <a href='#'>Contact Me</a>
+          <li className='link'>
+            <Link to='contact-me' smooth={true} offset={-63.2} duration={500}>
+              Contact me
+            </Link>
           </li>
-          {/* <li className="language"><a href="#">EN</a></li> */}
         </ul>
       </div>
     </Wrapper>
@@ -59,6 +67,7 @@ const Wrapper = styled.nav`
     align-items: center;
     justify-content: space-between;
     gap: 5px;
+    cursor: pointer;
   }
 
   .nav-logo img {
@@ -99,6 +108,7 @@ const Wrapper = styled.nav`
     position: relative;
     transition: all 0.3s ease;
     padding-bottom: 0.5rem;
+    cursor: pointer;
   }
 
   @media (min-width: 800px) {

@@ -3,7 +3,7 @@ import { services } from '../utils/constants'
 
 const Services = () => {
   return (
-    <Wrapper>
+    <Wrapper id='services'>
         <h1>Services</h1>
         <div className='section'>
           <div className='services'>

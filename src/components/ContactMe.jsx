@@ -38,7 +38,7 @@ const ContactMe = () => {
   }
 
   return (
-    <Wrapper>
+    <Wrapper id='contact-me'>
       <h1>Contact Me</h1>
       <form className='form' onSubmit={handleSubmit}>
         <div className='form-section'>

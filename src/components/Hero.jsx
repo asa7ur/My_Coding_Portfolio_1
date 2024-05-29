@@ -3,7 +3,7 @@ import heroBcg from '../assets/heroBcg.jpg'
 
 const Hero = () => {
   return (
-    <Wrapper>
+    <Wrapper id='hero'>
       <div className='section section-center'>
         <div className='content'>
           <div className='title'>

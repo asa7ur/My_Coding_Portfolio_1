@@ -4,7 +4,7 @@ import { projects } from '../utils/constants'
 
 const Portfolio = () => {
   return (
-    <Wrapper>
+    <Wrapper id='portfolio'>
       <h1>Portfolio</h1>
       <div className='section'>
         <div className='projects'>

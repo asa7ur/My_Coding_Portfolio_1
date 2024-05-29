@@ -4,7 +4,7 @@ import { skills, personal_info } from '../utils/constants'
 
 const AboutMe = () => {
   return (
-    <Wrapper>
+    <Wrapper id='about-me'>
       <h1>About Me</h1>
       <div className='section'>
         <img src={image} />
