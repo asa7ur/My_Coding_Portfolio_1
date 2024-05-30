@@ -11,7 +11,7 @@ const Hero = () => {
             <h1>
               I'm <span>Garik</span>
             </h1>
-            <h4>Freelance Web Developer & Designer</h4>
+            <h5>Freelance Web Developer & Designer</h5>
           </div>
           <button>Download CV</button>
         </div>
@@ -29,17 +29,14 @@ const Wrapper = styled.header`
   height: calc(100vh - 3rem);
   .title {
     h1 {
-      font-size: 3rem;
       text-transform: uppercase;
       color: var(--grey-100);
     }
     h3 {
-      font-size: 1.5rem;
       text-transform: uppercase;
       color: var(--grey-100);
     }
-    h4 {
-      font-size: 1.2rem;
+    h5 {
       text-transform: uppercase;
       color: var(--grey-100);
     }
@@ -53,7 +50,7 @@ const Wrapper = styled.header`
 
   button {
     padding: var(--padding);
-    margin-top: 2rem;
+    margin-top: 1.2rem;
     background-color: var(--grey-900);
     color: var(--textColor);
     border: var(--border);
@@ -83,13 +80,14 @@ const Wrapper = styled.header`
         font-size: 2rem;
       }
 
-      h4 {
+      h5 {
         font-size: 1.5rem;
       }
     }
 
     button {
       font-size: 1.2rem;
+      margin-top: 2rem;
     }
 
     .image img {
@@ -117,26 +115,6 @@ const Wrapper = styled.header`
 
     .image img {
       display: none;
-    }
-  }
-
-  @media (max-width: 460px) {
-    .title {
-      h1 {
-        font-size: 2.5rem;
-      }
-      
-      h3 {
-        font-size: 1.5rem;
-      }
-
-      h4 {
-        font-size: 0.875rem;
-      }
-    }
-
-    button {
-      font-size: 0.875rem;
     }
   }
 `
