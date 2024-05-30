@@ -45,7 +45,6 @@ const Wrapper = styled.section`
   border-bottom: var(--border);
 
   h1 {
-    font-size: 3rem;
     text-align: center;
     padding-bottom: 2rem;
     text-transform: uppercase;
@@ -100,9 +99,8 @@ const Wrapper = styled.section`
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     h1 {
-      font-size: 2.5rem;
       padding-bottom: 1rem;
     }
 
@@ -112,7 +110,7 @@ const Wrapper = styled.section`
     }
 
     img {
-      max-width: 200px;
+      max-width: 250px;
     }
   }
 
@@ -131,6 +129,9 @@ const Wrapper = styled.section`
         margin: 0.5rem;
         gap: 0.5rem;
       }
+    }
+    img {
+      max-width: 200px;
     }
   }
 `
