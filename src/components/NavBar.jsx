@@ -1,42 +1,55 @@
 import styled from 'styled-components'
 import logo from '../assets/logo.png'
+import { useState } from 'react'
+import { links } from '../utils/constants'
 import { FaBars } from 'react-icons/fa'
-import { Link, Element, animateScroll as scroll } from 'react-scroll'
+import { Link } from 'react-scroll'
 
 const NavBar = () => {
+  const [open, setOpen] = useState(false)
   return (
     <Wrapper>
-      <div className='nav'>
+      <div className='nav-container'>
         <div className='nav-logo'>
           <Link to='hero' smooth={true} offset={-63.2} duration={500}>
             <img src={logo} alt='logo' />
             <span>ASA7UR</span>
           </Link>
         </div>
-        <button type='button' className='nav-toggle'>
-          <FaBars />
-        </button>
+        <div className='dropdown'>
+          <button
+            type='button'
+            className='nav-toggle'
+            onClick={() => setOpen(!open)}
+          >
+            <FaBars />
+          </button>
+          <div className={`dropdown-menu ${open ? 'active' : 'inactive'}`}>
+            <ul>
+              {links.map((link) => {
+                const { id, to, value } = link
+                return (
+                  <li className='link' key={id}>
+                    <Link to={to} smooth={true} offset={-58.4} duration={500}>
+                      {value}
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        </div>
         <ul className='nav-links'>
-          <li className='link'>
-            <Link to='about-me' smooth={true} offset={-63.2} duration={500}>
-              About me
-            </Link>
-          </li>
-          <li className='link'>
-            <Link to='services' smooth={true} offset={-63.2} duration={500}>
-              Services
-            </Link>
-          </li>
-          <li className='link'>
-            <Link to='portfolio' smooth={true} offset={-63.2} duration={500}>
-              Portfolio
-            </Link>
-          </li>
-          <li className='link'>
-            <Link to='contact-me' smooth={true} offset={-63.2} duration={500}>
-              Contact me
-            </Link>
-          </li>
+          {links.map((link) => {
+            const { id, to, value } = link
+            return (
+              <li className='link' key={id}>
+                <Link to={to} smooth={true} offset={-63.2} duration={500}>
+                  {value}
+                </Link>
+              </li>
+            )
+          })}
         </ul>
       </div>
     </Wrapper>
@@ -46,20 +59,18 @@ const NavBar = () => {
 export default NavBar
 
 const Wrapper = styled.nav`
-  background-color: var(--backgroundColor);
-  overflow: hidden;
   position: sticky;
-  z-index: 999;
   top: 0;
+  background-color: var(--backgroundColor);
   border-bottom: var(--border);
 
-  .nav {
-    max-width: var(--max-width);
-    padding: 1rem 1.5rem;
+  .nav-container {
     display: flex;
     margin: 0 auto;
     align-items: center;
     justify-content: space-between;
+    max-width: var(--max-width);
+    padding: 1rem 1.5rem;
   }
 
   .nav-logo {
@@ -95,7 +106,7 @@ const Wrapper = styled.nav`
     svg {
       font-size: 1.5rem;
     }
-    
+
     :hover {
       color: var(--primary-500);
     }
@@ -113,10 +124,49 @@ const Wrapper = styled.nav`
     cursor: pointer;
   }
 
+  .dropdown-menu {
+    position: absolute;
+    top: 61.7px;
+    right: 20px;
+    background-color: var(--grey-700);
+    border-radius: 10px;
+    padding: 10px 20px;
+    width: 150px;
+  }
+
+  .dropdown-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: 500ms ease;
+  }
+
+  .dropdown-menu.inactive {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: 500ms ease;
+  }
+
+  .dropdown-menu ul {
+    list-style: none;
+  }
+
+  .dropdown-menu ul li {
+    text-transform: uppercase;
+    padding: 10px 0;
+  }
+
+  .dropdown-menu ul li:hover a {
+    color: var(--primary-500);
+    cursor: pointer;
+  }
+
   @media (min-width: 800px) {
-    .nav {
+    .nav.container {
       padding: 1rem 2rem;
     }
+
     .nav-logo {
       img {
         max-height: 30px;
@@ -160,7 +210,7 @@ const Wrapper = styled.nav`
   }
 
   @media (max-width: 460px) {
-    .nav {
+    .nav-container {
       padding: 1rem 1.5rem;
     }
 

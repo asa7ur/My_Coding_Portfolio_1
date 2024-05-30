@@ -10,19 +10,23 @@ import project4 from '../assets/project-4.jpg'
 export const links = [
   {
     id: 1,
-    text: 'about me',
+    to: 'about-me',
+    value: 'about me',
   },
   {
     id: 2,
-    text: 'services',
+    to: 'services',
+    value: 'services',
   },
   {
     id: 3,
-    text: 'portfolio',
+    to: 'portfolio',
+    value: 'portfolio',
   },
   {
     id: 4,
-    text: 'contact me',
+    to: 'contact-me',
+    value: 'contact me',
   },
 ]
 
