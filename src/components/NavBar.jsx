@@ -1,12 +1,25 @@
 import styled from 'styled-components'
 import logo from '../assets/logo.png'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { links } from '../utils/constants'
 import { FaBars } from 'react-icons/fa'
 import { Link } from 'react-scroll'
 
 const NavBar = () => {
   const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    const handler = (event) => {
+      if (!event.target.closest('.dropdown')) {
+        setOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handler)
+    return () => {
+      document.removeEventListener('mousedown', handler)
+    }
+  },[])
+
   return (
     <Wrapper>
       <div className='nav-container'>
