@@ -4,21 +4,21 @@ import { services } from '../utils/constants'
 const Services = () => {
   return (
     <Wrapper id='services'>
-        <h1>Services</h1>
-        <div className='section'>
-          <div className='services'>
-            {services.map((service) => {
-              const { id, image, title, description } = service
-              return (
-                <div className='service' key={id}>
-                  <img src={image} />
-                  <h2>{title}</h2>
-                  <p>{description}</p>
-                </div>
-              )
-            })}
-          </div>
+      <h1>Services</h1>
+      <div className='section'>
+        <div className='services'>
+          {services.map((service) => {
+            const { id, image, title, description } = service
+            return (
+              <div className='service' key={id}>
+                <img src={image} />
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </div>
+            )
+          })}
         </div>
+      </div>
     </Wrapper>
   )
 }
@@ -29,7 +29,6 @@ const Wrapper = styled.section`
   border-bottom: var(--border);
 
   h1 {
-    font-size: 3rem;
     text-align: center;
     padding-bottom: 2rem;
     text-transform: uppercase;
@@ -66,7 +65,35 @@ const Wrapper = styled.section`
 
   @media (max-width: 768px) {
     .services {
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      grid-template-columns: repeat(1, 1fr);
+      max-width: var(--fixed-width);
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 460px) {
+    .services {
+      grid-template-columns: repeat(1, 1fr);
+      max-width: var(--fixed-width);
+      margin: 0 auto;
+    }
+
+    .service {
+      padding: 1rem;
+      border-radius: 3px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      &:hover {
+        box-shadow: none;
+      }
+      img {
+        height: 50px;
+      }
+      p {
+        font-size: 0.75rem;
+      }
     }
   }
 `

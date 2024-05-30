@@ -15,7 +15,7 @@ const AboutMe = () => {
               const { id, label, value } = info
               return (
                 <div className='info-item' key={id}>
-                  <h4 className='info-label'>{label}</h4>
+                  <h5 className='info-label'>{label}</h5>
                   <span>{value}</span>
                 </div>
               )
@@ -24,10 +24,10 @@ const AboutMe = () => {
           <h2>Skills</h2>
           <div className='skills'>
             {skills.map((skill) => {
-              const {id, value} = skill
+              const { id, value } = skill
               return (
                 <div className='skill' key={id}>
-                  <h4>{value}</h4>
+                  <h5>{value}</h5>
                 </div>
               )
             })}
@@ -75,7 +75,7 @@ const Wrapper = styled.section`
       display: grid;
       grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .info-item,
     .skills .skill {
       padding: var(--padding);
@@ -92,7 +92,7 @@ const Wrapper = styled.section`
       grid-template-columns: repeat(3, 1fr);
     }
 
-    .skills .skill h4,
+    .skills .skill h5,
     .info-label {
       color: var(--primary-500);
       font-weight: bold;
@@ -100,7 +100,7 @@ const Wrapper = styled.section`
     }
   }
 
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
     h1 {
       font-size: 2.5rem;
       padding-bottom: 1rem;
@@ -113,6 +113,24 @@ const Wrapper = styled.section`
 
     img {
       max-width: 200px;
+    }
+  }
+
+  @media (max-width: 460px) {
+    .container {
+      font-size: 0.75rem;
+
+      .info-item {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .info-item,
+      .skills .skill {
+        padding: 0.75rem 1rem;
+        margin: 0.5rem;
+        gap: 0.5rem;
+      }
     }
   }
 `

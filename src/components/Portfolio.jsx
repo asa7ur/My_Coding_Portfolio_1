@@ -14,7 +14,7 @@ const Portfolio = () => {
               <div className='project' key={id}>
                 <img src={image} alt={title} />
                 <div className='info'>
-                  <h2>{title}</h2>
+                  <h4>{title}</h4>
                   <div className='links'>
                     <a href={github} target='_blank'>
                       <FaGithub />
@@ -38,7 +38,6 @@ const Wrapper = styled.section`
   background-color: var(--grey-800);
 
   h1 {
-    font-size: 3rem;
     text-align: center;
     padding-bottom: 2rem;
     text-transform: uppercase;
@@ -70,11 +69,6 @@ const Wrapper = styled.section`
       max-width: 100%;
     }
 
-    h2 {
-      font-size: 1.2rem;
-      text-transform: uppercase;
-    }
-
     .info {
       display: flex;
       justify-content: space-between;
@@ -97,21 +91,25 @@ const Wrapper = styled.section`
 
   @media (max-width: 768px) {
     .projects {
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      grid-template-columns: repeat(1, 1fr);
+      max-width: 90vw;
+      margin: 0 auto;
       gap: 2rem;
     }
 
     .project {
+      max-width: var(--fixed-width);
       padding: 1rem;
-      .info {
-        h2,
-        a {
-          font-size: 1.2rem;
-        }
-      }
     }
   }
 
   @media (max-width: 460px) {
+    .projects {
+      width: 100%;
+    }
+
+    .project .info a {
+      font-size: 1.2rem;
+    }
   }
 `

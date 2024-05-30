@@ -40,8 +40,8 @@ const ContactMe = () => {
   return (
     <Wrapper id='contact-me'>
       <h1>Contact Me</h1>
-      <form className='form' onSubmit={handleSubmit}>
-        <div className='form-section'>
+      <div className='section'>
+        <form className='form' onSubmit={handleSubmit}>
           <div className='form-group'>
             <input
               type='text'
@@ -63,41 +63,41 @@ const ContactMe = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-        </div>
 
-        <div className='form-group'>
-          <input
-            type='text'
-            className='subject'
-            id='subject'
-            placeholder='Subject'
-            value={subject}
-            onChange={(e) => setSubject(e.target.value)}
-          />
-        </div>
+          <div className='form-group'>
+            <input
+              type='text'
+              className='subject'
+              id='subject'
+              placeholder='Subject'
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
+            />
+          </div>
 
-        <div className='form-group'>
-          <textarea
-            id='message'
-            className='message'
-            spellCheck='false'
-            placeholder='Message'
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          ></textarea>
-        </div>
+          <div className='form-group'>
+            <textarea
+              id='message'
+              className='message'
+              spellCheck='false'
+              placeholder='Message'
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            ></textarea>
+          </div>
 
-        <div className='form-group result-container'>
-          <button type='submit' className='submit-btn'>
-            {isLoading ? <span className='sending'></span> : 'Send Message'}
-          </button>
-          {result && (
-            <div className='result' style={{ opacity: 1 }}>
-              {result}
-            </div>
-          )}
-        </div>
-      </form>
+          <div className='form-group result-container'>
+            <button type='submit' className='submit-btn'>
+              {isLoading ? <span className='sending'></span> : 'Send Message'}
+            </button>
+            {result && (
+              <div className='result' style={{ opacity: 1 }}>
+                {result}
+              </div>
+            )}
+          </div>
+        </form>
+      </div>
     </Wrapper>
   )
 }
@@ -106,7 +106,6 @@ export default ContactMe
 
 const Wrapper = styled.section`
   h1 {
-    font-size: 3rem;
     text-align: center;
     padding-bottom: 2rem;
     text-transform: uppercase;
@@ -118,15 +117,6 @@ const Wrapper = styled.section`
   .form {
     margin: 0 auto;
     width: 600px;
-    max-width: 80vw;
-  }
-
-  .form-section {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10vw;
   }
 
   .form-group {
@@ -195,5 +185,15 @@ const Wrapper = styled.section`
     border: 3px solid #ccc;
     border-top-color: var(--primary-500);
     animation: spinner 0.6s linear infinite;
+  }
+
+  @media (max-width: 460px) {
+    .form-group {
+      input,
+      textarea,
+      button {
+        font-size: 0.875rem;
+      }
+    }
   }
 `
