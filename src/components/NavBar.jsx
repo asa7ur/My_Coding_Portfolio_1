@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { links } from '../utils/constants'
 import { FaBars } from 'react-icons/fa'
 import { Link } from 'react-scroll'
+import gsap from 'gsap'
 
 const NavBar = () => {
   const [open, setOpen] = useState(false)
@@ -20,8 +21,33 @@ const NavBar = () => {
     }
   },[])
 
+  
+  useEffect(() => {
+    const expandNavbar = () => {
+      gsap.to('.nav', {
+        width: '100%',
+        duration: 2, // Adjust the duration as needed
+        ease: 'power2.inOut', // Use a easing function of your choice
+      })
+    }
+
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        expandNavbar()
+        // Optionally, remove the scroll event listener once the navbar is expanded
+        window.removeEventListener('scroll', handleScroll)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   return (
-    <Wrapper>
+    <Wrapper className='nav'>
       <div className='nav-container'>
         <div className='nav-logo'>
           <Link to='hero' smooth={true} offset={-63.2} duration={500}>
@@ -74,8 +100,11 @@ export default NavBar
 const Wrapper = styled.nav`
   position: sticky;
   top: 0;
+  z-index: 99;
   background-color: var(--backgroundColor);
   border-bottom: var(--border);
+  width: 80%;
+  margin: 0 auto;
 
   .nav-container {
     display: flex;

@@ -1,16 +1,48 @@
 import styled from 'styled-components'
 import { services } from '../utils/constants'
+import { useRef, useEffect } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const Services = () => {
+  const serviceRefs = useRef([])
+
+  useEffect(() => {
+    serviceRefs.current.forEach((service, index) => {
+      gsap.fromTo(
+        service,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          delay: index * 0.2,
+          scrollTrigger: {
+            trigger: service,
+            start: 'top 80%',
+            end: 'bottom 20%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      )
+    })
+  }, [])
+
   return (
     <Wrapper id='services'>
       <h1>Services</h1>
       <div className='section'>
         <div className='services'>
-          {services.map((service) => {
+          {services.map((service, index) => {
             const { id, image, title, description } = service
             return (
-              <div className='service' key={id}>
+              <div
+                className={`service service-${id}`}
+                key={id}
+                ref={(el) => (serviceRefs.current[index] = el)}
+              >
                 <img src={image} />
                 <h3>{title}</h3>
                 <p>{description}</p>
@@ -55,6 +87,7 @@ const Wrapper = styled.section`
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    opacity: 0;
     &:hover {
       box-shadow: none;
     }
