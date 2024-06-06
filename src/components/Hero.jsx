@@ -14,16 +14,14 @@ const Hero = () => {
     const button = buttonRef.current;
     const image = imageRef.current
 
-    // Set initial states
     gsap.set([title, button, image], { opacity: 0});
 
-    // Animate the title and button
     gsap.to([title, button, image], {
       opacity: 1,
       y: 0,
       duration: 1,
-      delay: 0.5, // Adjust the delay as needed
-      stagger: 0.2, // Adjust the stagger for a staggered effect
+      delay: 1,
+      stagger: 0.2,
     });
   }, []);
 

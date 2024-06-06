@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import logo from '../assets/logo.png'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { links } from '../utils/constants'
 import { FaBars } from 'react-icons/fa'
 import { Link } from 'react-scroll'
@@ -8,6 +8,7 @@ import gsap from 'gsap'
 
 const NavBar = () => {
   const [open, setOpen] = useState(false)
+  const navbarRef = useRef(null)
 
   useEffect(() => {
     const handler = (event) => {
@@ -20,9 +21,19 @@ const NavBar = () => {
       document.removeEventListener('mousedown', handler)
     }
   },[])
-
   
   useEffect(() => {
+    const navbar = navbarRef.current
+
+    gsap.set([navbar], { opacity: 0 })
+
+    gsap.to([navbar], {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      delay: 0.5
+    })
+
     const expandNavbar = () => {
       gsap.to('.nav', {
         width: '100%',
@@ -47,7 +58,7 @@ const NavBar = () => {
   }, [])
 
   return (
-    <Wrapper className='nav'>
+    <Wrapper className='nav' ref={navbarRef}>
       <div className='nav-container'>
         <div className='nav-logo'>
           <Link to='hero' smooth={true} offset={-63.2} duration={500}>
@@ -105,6 +116,7 @@ const Wrapper = styled.nav`
   border-bottom: var(--border);
   width: 80%;
   margin: 0 auto;
+  opacity: 0;
 
   .nav-container {
     display: flex;
