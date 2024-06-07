@@ -37,15 +37,14 @@ const NavBar = () => {
     const expandNavbar = () => {
       gsap.to('.nav', {
         width: '100%',
-        duration: 2, // Adjust the duration as needed
-        ease: 'power2.inOut', // Use a easing function of your choice
+        duration: 2,
+        ease: 'power2.inOut',
       })
     }
 
     const handleScroll = () => {
       if (window.scrollY > 0) {
         expandNavbar()
-        // Optionally, remove the scroll event listener once the navbar is expanded
         window.removeEventListener('scroll', handleScroll)
       }
     }

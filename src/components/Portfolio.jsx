@@ -1,17 +1,50 @@
+import { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { FaGithub, FaLink } from 'react-icons/fa'
 import { projects } from '../utils/constants'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const Portfolio = () => {
+  const projectRefs = useRef([])
+
+  useEffect(() => {
+    projectRefs.current.forEach((project, index) => {
+      if (project) {
+        const animationDirection = index % 2 === 0 ? -100 : 100
+        gsap.fromTo(
+          project,
+          { x: animationDirection, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 1,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: project,
+              start: 'top 80%',
+              end: 'bottom 20%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        )
+      }
+    })
+  }, [])
+
   return (
     <Wrapper id='portfolio'>
       <h1>Portfolio</h1>
       <div className='section'>
         <div className='projects'>
-          {projects.map((project) => {
+          {projects.map((project, index) => {
             const { id, image, title, github, web } = project
             return (
-              <div className='project' key={id}>
+              <div
+                className='project'
+                key={id}
+                ref={(el) => (projectRefs.current[index] = el)}
+              >
                 <img src={image} alt={title} />
                 <div className='info'>
                   <h4>{title}</h4>
@@ -61,6 +94,7 @@ const Wrapper = styled.section`
     height: auto;
     box-shadow: var(--shadow-4);
     transition: var(--transition);
+    opacity: 0;
     &:hover {
       box-shadow: none;
     }
