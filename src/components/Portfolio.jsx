@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { FaGithub, FaLink } from 'react-icons/fa'
 import { projects } from '../utils/constants'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const Portfolio = () => {
   const projectRefs = useRef([])
