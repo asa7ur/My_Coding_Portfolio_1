@@ -216,7 +216,7 @@ const Wrapper = styled.nav`
   }
 
   @media (min-width: 800px) {
-    .nav.container {
+    .nav-container {
       padding: 1rem 2rem;
     }
 

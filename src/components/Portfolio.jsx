@@ -1,57 +1,25 @@
-import { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { FaGithub, FaLink } from 'react-icons/fa'
 import { projects } from '../utils/constants'
-import gsap from 'gsap'
 
 const Portfolio = () => {
-  const projectRefs = useRef([])
-
-  useEffect(() => {
-    projectRefs.current.forEach((project, index) => {
-      if (project) {
-        const animationDirection = index % 2 === 0 ? -100 : 100
-        gsap.fromTo(
-          project,
-          { x: animationDirection, opacity: 0 },
-          {
-            x: 0,
-            opacity: 1,
-            duration: 1,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: project,
-              start: 'top 80%',
-              end: 'bottom 20%',
-              toggleActions: 'play none none reverse',
-            },
-          }
-        )
-      }
-    })
-  }, [])
-
   return (
     <Wrapper id='portfolio'>
       <h1>Portfolio</h1>
       <div className='section'>
         <div className='projects'>
-          {projects.map((project, index) => {
+          {projects.map((project) => {
             const { id, image, title, github, web } = project
             return (
-              <div
-                className='project'
-                key={id}
-                ref={(el) => (projectRefs.current[index] = el)}
-              >
+              <div className='project' key={id}>
                 <img src={image} alt={title} />
                 <div className='info'>
                   <h4>{title}</h4>
                   <div className='links'>
-                    <a href={github} target='_blank'>
+                    <a href={github} target='_blank' rel='noopener noreferrer'>
                       <FaGithub />
                     </a>
-                    <a href={web} target='_blank'>
+                    <a href={web} target='_blank' rel='noopener noreferrer'>
                       <FaLink />
                     </a>
                   </div>
@@ -93,7 +61,6 @@ const Wrapper = styled.section`
     height: auto;
     box-shadow: var(--shadow-4);
     transition: var(--transition);
-    opacity: 0;
     &:hover {
       box-shadow: none;
     }
