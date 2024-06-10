@@ -1,3 +1,4 @@
+import { useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import { FaGithub, FaLink } from 'react-icons/fa'
 import { projects } from '../utils/constants'
@@ -33,10 +34,14 @@ const Portfolio = () => {
       <h1>Portfolio</h1>
       <div className='section'>
         <div className='projects'>
-          {projects.map((project) => {
+          {projects.map((project, index) => {
             const { id, image, title, github, web } = project
             return (
-              <div className='project' key={id}>
+              <div
+                className='project'
+                key={id}
+                ref={(e) => (projectRefs.current[index] = e)}
+              >
                 <img src={image} alt={title} />
                 <div className='info'>
                   <h4>{title}</h4>
