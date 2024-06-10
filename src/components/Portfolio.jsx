@@ -1,8 +1,33 @@
 import styled from 'styled-components'
 import { FaGithub, FaLink } from 'react-icons/fa'
 import { projects } from '../utils/constants'
+import gsap from 'gsap'
 
 const Portfolio = () => {
+  const projectRefs = useRef([])
+
+  useEffect(() => {
+    projectRefs.current.forEach((project, index) => {
+      gsap.fromTo(
+        project,
+        { opacity: 0, x: index % 2 === 0 ? '-50%' : '50%' },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1,
+          delay: index * 0.2,
+          ease: 'power1.out',
+          scrollTrigger: {
+            trigger: project,
+            start: 'top 80%',
+            end: 'bottom 20%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      )
+    })
+  }, [])
+
   return (
     <Wrapper id='portfolio'>
       <h1>Portfolio</h1>
@@ -36,6 +61,7 @@ export default Portfolio
 
 const Wrapper = styled.section`
   background-color: var(--grey-800);
+  overflow: hidden;
 
   h1 {
     text-align: center;
