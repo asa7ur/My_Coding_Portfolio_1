@@ -3,32 +3,29 @@ import styled from 'styled-components'
 import { FaGithub, FaLink } from 'react-icons/fa'
 import { projects } from '../utils/constants'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const Portfolio = () => {
   const projectRefs = useRef([])
 
   useEffect(() => {
     projectRefs.current.forEach((project, index) => {
-      if (project) {
-        const animationDirection = index % 2 === 0 ? -100 : 100
-        gsap.fromTo(
-          project,
-          { x: animationDirection, opacity: 0 },
-          {
-            x: 0,
-            opacity: 1,
-            duration: 1,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: project,
-              start: 'top 80%',
-              end: 'bottom 20%',
-              toggleActions: 'play none none reverse',
-            },
-          }
-        )
-      }
+      gsap.fromTo(
+        project,
+        { opacity: 0, x: index % 2 === 0 ? '-50%' : '50%' },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1,
+          delay: index * 0.3,
+          ease: 'power1.out',
+          scrollTrigger: {
+            trigger: project,
+            start: 'top 80%',
+            end: 'bottom 20%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      )
     })
   }, [])
 
@@ -49,10 +46,10 @@ const Portfolio = () => {
                 <div className='info'>
                   <h4>{title}</h4>
                   <div className='links'>
-                    <a href={github} target='_blank'>
+                    <a href={github} target='_blank' rel='noopener noreferrer'>
                       <FaGithub />
                     </a>
-                    <a href={web} target='_blank'>
+                    <a href={web} target='_blank' rel='noopener noreferrer'>
                       <FaLink />
                     </a>
                   </div>
@@ -69,6 +66,7 @@ export default Portfolio
 
 const Wrapper = styled.section`
   background-color: var(--grey-800);
+  overflow: hidden;
 
   h1 {
     text-align: center;
@@ -94,7 +92,6 @@ const Wrapper = styled.section`
     height: auto;
     box-shadow: var(--shadow-4);
     transition: var(--transition);
-    opacity: 0;
     &:hover {
       box-shadow: none;
     }
