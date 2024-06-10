@@ -16,7 +16,7 @@ const Portfolio = () => {
           opacity: 1,
           x: 0,
           duration: 1,
-          delay: index * 0.3,
+          delay: index * 0.2,
           ease: 'power1.out',
           scrollTrigger: {
             trigger: project,
