@@ -1,13 +1,21 @@
-import { Hero, AboutMe, Services, Portfolio, ContactMe } from "../components"
+import {
+  Hero,
+  AboutMe,
+  Services,
+  Portfolio,
+  ContactMe,
+  Maintenance,
+} from '../components'
 
 const Home = () => {
   return (
     <main>
-      <Hero />
+      <Maintenance />
+      {/* <Hero />
       <AboutMe/>
       <Services/>
       <Portfolio/>
-      <ContactMe/>
+      <ContactMe/> */}
     </main>
   )
 }
